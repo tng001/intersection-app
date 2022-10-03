@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="=UTF-8">
+    <title>List Intersection App</title>
+    <script src="/static/js/vendor/jquery.min.js"></script>
+    <script src="/static/js/vendor/semantic.min.js"></script>
+    <script src="/static/js/main.js"></script>
+    <link rel="stylesheet" type="text/css" href="/static/css/vendor/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+</head>
+<body>
+<div class="main-container">
+    <div class="ui medium header">Simple app to generates two lists and calculates their intersections</div>
+    <div class="four fields">
+        <div class="field">
+            <label>Size of Collection A:</label>
+            <input class="first-size" type="number" value="0" placeholder="0" min="0" max="2147483647" required>
+        </div>
+        <div class="field">
+            <label>Size of Collection B:</label>
+            <input class="second-size" type="number" value="0" placeholder="0" min="0" max="2147483647" required>
+        </div>
+        <div class="field">
+            <div>Select which one to put in the hash-set:</div>
+            <div class="ui item first checkbox" title="first">
+                <label>First collection</label>
+                <input type="checkbox">
+            </div>
+            <div class="ui item second checkbox" title="second">
+                <label>Second collection</label>
+                <input type="checkbox">
+            </div>
+        </div>
+        <div class="field">
+            <div>Select which one to iterate over:</div>
+            <div class="ui item third checkbox" title="third">
+                <label>First collection</label>
+                <input type="checkbox">
+            </div>
+            <div class="ui item fourth checkbox" title="fourth">
+                <label>Second collection</label>
+                <input type="checkbox">
+            </div>
+        </div>
+    </div>
+    <div class="ui submit button">Magic button</div>
+    <div class="four fields results">
+        <div>Time passed for calculating the result ONLY on backend =
+            <div id="time" class="result"></div>
+            nanoseconds
+        </div>
+        <div>Size of the intersection =
+            <div id="intersection-size" class="result"></div>
+        </div>
+        <div>Intersection = {
+            <div id="intersection" class="result"></div> }
+        </div>
+        <div>First list = {
+            <div id="first-list" class="result"></div> }
+        </div>
+        <div>Second list = {
+            <div id="second-list" class="result"></div> }
+        </div>
+    </div>
+</div>
+</body>

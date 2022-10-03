@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "types": ["jquery", "node"],
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "module": "commonjs",
+    "target": "es6",
+    "jsx": "react",
+    "allowJs": true,
+    "baseUrl": "./"
+  },
+  "exclude": [
+    "node_modules",
+    "definitions",
+    "packages/*/node_modules",
+    "packages/*/definitions",
+    "webpack.config.js",
+    "postcss.config.js"
+  ]
+}

@@ -1,0 +1,16 @@
+request:
+  list:
+    notnull:
+      message: "The size cannot be null."
+    positive:
+      message: "The size must be a positive number."
+    minsize:
+      message: "The size should be bigger or equal to {min}."
+    maxsize:
+      message: "The size should be smaller or equal to {max}."
+  toiterateover:
+    notempty:
+      message: "Collection for iteration cannot be empty."
+  toputinhashset:
+    notempty:
+      message: "Collection for hash set cannot be empty."
