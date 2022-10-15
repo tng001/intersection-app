@@ -2,10 +2,10 @@ body {
     height: auto;
 
     .main-container {
-        display: flex;
-        justify-content: center;
         align-items: center;
+        display: flex;
         flex-direction: column;
+        justify-content: center;
         margin: auto;
         max-width: 55rem;
 
@@ -18,17 +18,17 @@ body {
         }
 
         .field {
+            align-items: center;
             display: flex;
             flex-direction: column;
-            align-items: center;
         }
 
         .fields {
-            text-align: center;
-            word-wrap: break-word;
-            margin: 1rem;
             border: 0.0714rem dashed #c5c5c5;
             border-radius: 1.3571rem;
+            margin: 1rem;
+            text-align: center;
+            word-wrap: break-word;
         }
 
         .results {
@@ -36,8 +36,8 @@ body {
             margin-bottom: 10rem;
 
             .result {
-                margin: 0;
                 display: inline;
+                margin: 0;
             }
         }
     }

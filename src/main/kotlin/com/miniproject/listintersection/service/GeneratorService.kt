@@ -2,20 +2,20 @@ package com.miniproject.listintersection.service
 
 import com.miniproject.listintersection.api.dto.RequestDto
 import com.miniproject.listintersection.api.dto.ResultDto
+import com.miniproject.listintersection.helpers.CollectionHelper
 import org.springframework.stereotype.Service
-import kotlin.random.Random
 
 @Service
 class GeneratorService {
     fun getIntersectionData(requestDto: RequestDto): ResultDto {
         val startTime = System.nanoTime()
 
-        val (firstCollection, secondCollection) = generateLists(requestDto.firstSize, requestDto.secondSize)
-
+        val firstCollection = CollectionHelper.generateCollectionWithSize(requestDto.firstSize)
+        val secondCollection = CollectionHelper.generateCollectionWithSize(requestDto.secondSize)
         val collectionToPutInHashset =
-            getCollectionToPutInHashset(requestDto.toPutInHashset, firstCollection, secondCollection)
+            CollectionHelper.getCollectionToPutInHashset(requestDto.toPutInHashset, firstCollection, secondCollection)
         val collectionToIterateOver =
-            getCollectionToIterateOver(requestDto.toIterateOver, firstCollection, secondCollection)
+            CollectionHelper.getCollectionToIterateOver(requestDto.toIterateOver, firstCollection, secondCollection)
 
         val intersection = getIntersection(collectionToPutInHashset, collectionToIterateOver)
         val intersectionSize = intersection.size
@@ -30,25 +30,6 @@ class GeneratorService {
             time = endTime
         )
     }
-
-    private fun generateLists(firstSize: Int, secondSize: Int): List<List<Int>> {
-        val ran = Random
-        val firstCollection = IntArray(firstSize) { ran.nextInt(0, 100) }.asList()
-        val secondCollection = IntArray(secondSize) { ran.nextInt(0, 100) }.asList()
-        return listOf(firstCollection, secondCollection)
-    }
-
-    private fun getCollectionToPutInHashset(
-        toPutInHashset: String,
-        firstCollection: List<Int>,
-        secondCollection: List<Int>,
-    ): List<Int> = if (toPutInHashset == "first") firstCollection else secondCollection
-
-    private fun getCollectionToIterateOver(
-        toIterateOver: String,
-        firstCollection: List<Int>,
-        secondCollection: List<Int>
-    ): List<Int> = if (toIterateOver == "first") firstCollection else secondCollection
 
     private fun getIntersection(
         collectionToPutInHashset: List<Int>,
