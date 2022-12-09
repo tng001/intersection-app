@@ -2,7 +2,6 @@ import { RequestModel } from '../model/request-model';
 import { getIntersectionData } from '../api/request';
 
 export class SubmitButtonComponent {
-    private checkedSelector = '.checked';
     private resultsSelector = '.results';
 
     public initComponent = (): void => {
@@ -10,6 +9,7 @@ export class SubmitButtonComponent {
             $(this.resultsSelector).hide();
             const requestDto = this.initRequestDto();
             const resultDto = await getIntersectionData(requestDto);
+            console.log(resultDto);
             $('#time').text(resultDto.time);
             $('#intersection-size').text(resultDto.intersectionSize);
             $('#intersection').text(resultDto.intersection.join(', '));
@@ -23,17 +23,7 @@ export class SubmitButtonComponent {
         return {
             firstSize: <number>$('.first-size').val(),
             secondSize: <number>$('.second-size').val(),
-            toPutInHashset: $(this.checkedSelector)[0].title,
-            toIterateOver: this.getToIterateOver(),
+            firstToHashSet: $('.checkbox').checkbox('is checked'),
         };
-    };
-
-    private getToIterateOver = (): string => {
-        if ($(this.checkedSelector)[1].title == 'third') {
-            return 'first';
-        }
-        if ($(this.checkedSelector)[1].title == 'fourth') {
-            return 'second';
-        }
     };
 }

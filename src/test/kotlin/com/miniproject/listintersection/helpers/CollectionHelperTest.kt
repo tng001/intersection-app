@@ -15,24 +15,26 @@ class CollectionHelperTest {
     }
 
     @Test
-    fun GivenFirstCollectionAsTarget_WhenCallingGetCollectionToPutInHashset_ThenFirstCollectionIsReturned() {
-        val toPutInHashset = "first"
+    fun GivenFirstToHashSetTrue_WhenCallingSortCollections_ThenFirstCollectionIsPutToHashSetSecondCollectionIsToIterateOver() {
+        val firstToHashSet = true
         val firstCollection = listOf(1, 2, 3)
         val secondCollection = listOf(5, 10, 15)
 
-        val result = CollectionHelper.getCollectionToPutInHashset(toPutInHashset, firstCollection, secondCollection)
+        val result = CollectionHelper.sortCollections(firstToHashSet, firstCollection, secondCollection)
 
-        assertEquals(result, firstCollection)
+        assertEquals(result.first, firstCollection)
+        assertEquals(result.second, secondCollection)
     }
 
     @Test
-    fun GivenSecondCollectionAsTarget_WhenCallingGetCollectionToIterateOver_ThenSecondCollectionIsReturned() {
-        val toIterateOver = "second"
+    fun GivenFirstToHashSetFalse_WhenCallingSortCollections_ThenSecondCollectionIsPutToHashSetFirstCollectionIsToIterateOver() {
+        val firstToHashSet = false
         val firstCollection = listOf(1, 2, 3)
         val secondCollection = listOf(5, 10, 15)
 
-        val result = CollectionHelper.getCollectionToIterateOver(toIterateOver, firstCollection, secondCollection)
+        val result = CollectionHelper.sortCollections(firstToHashSet, firstCollection, secondCollection)
 
-        assertEquals(result, secondCollection)
+        assertEquals(result.first, secondCollection)
+        assertEquals(result.second, firstCollection)
     }
 }

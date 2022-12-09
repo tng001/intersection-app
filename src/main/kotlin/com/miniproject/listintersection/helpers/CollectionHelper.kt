@@ -5,24 +5,18 @@ import kotlin.random.Random
 object CollectionHelper {
     fun generateCollectionWithSize(firstSize: Int): List<Int> {
         val ran = Random
-        return IntArray(firstSize) { ran.nextInt(0, 100) }.asList()
+        return IntArray(firstSize) { ran.nextInt(0, firstSize) }.asList()
     }
 
-    fun getCollectionToPutInHashset(
-        toPutInHashset: String,
+    fun sortCollections(
+        firstToHashSet: Boolean,
         firstCollection: List<Int>,
         secondCollection: List<Int>,
-    ): List<Int> = getCollection(toPutInHashset, firstCollection, secondCollection)
-
-    fun getCollectionToIterateOver(
-        toIterateOver: String,
-        firstCollection: List<Int>,
-        secondCollection: List<Int>
-    ): List<Int> = getCollection(toIterateOver, firstCollection, secondCollection)
-
-    private fun getCollection(
-        target: String,
-        firstCollection: List<Int>,
-        secondCollection: List<Int>
-    ): List<Int> = if (target == "first") firstCollection else secondCollection
+    ): Pair<List<Int>, List<Int>> {
+        return if (firstToHashSet) {
+            Pair(firstCollection, secondCollection)
+        } else {
+            Pair(secondCollection, firstCollection)
+        }
+    }
 }

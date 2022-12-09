@@ -22,45 +22,32 @@
             <input class="second-size" type="number" value="0" placeholder="0" min="0" max="2147483647" required>
         </div>
         <div class="field">
-            <div>Select which one to put in the hash-set:</div>
-            <div class="ui item first checkbox" title="first">
-                <label>First collection</label>
-                <input type="checkbox">
-            </div>
-            <div class="ui item second checkbox" title="second">
-                <label>Second collection</label>
-                <input type="checkbox">
-            </div>
-        </div>
-        <div class="field">
-            <div>Select which one to iterate over:</div>
-            <div class="ui item third checkbox" title="third">
-                <label>First collection</label>
-                <input type="checkbox">
-            </div>
-            <div class="ui item fourth checkbox" title="fourth">
-                <label>Second collection</label>
+            <div class="ui item checkbox" title="Should we put the first collection into HashSet?">
+                <label>Check if you want to put the first collection into the HashSet.</label>
                 <input type="checkbox">
             </div>
         </div>
     </div>
     <div class="ui submit button">Magic button</div>
     <div class="four fields results">
-        <div>Time passed for calculating the result ONLY on backend =
+        <div>Time passed for calculating intersection =
             <div id="time" class="result"></div>
-            nanoseconds
+            milliseconds
         </div>
         <div>Size of the intersection =
             <div id="intersection-size" class="result"></div>
         </div>
         <div>Intersection = {
-            <div id="intersection" class="result"></div> }
+            <div id="intersection" class="result"></div>
+            }
         </div>
         <div>First list = {
-            <div id="first-list" class="result"></div> }
+            <div id="first-list" class="result"></div>
+            }
         </div>
         <div>Second list = {
-            <div id="second-list" class="result"></div> }
+            <div id="second-list" class="result"></div>
+            }
         </div>
     </div>
 </div>
